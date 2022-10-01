@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link href="/static/login.css" rel="stylesheet">
+</head>
+<body>
+    <main class="form-signin w-100 m-auto">
+        <div class="input-group mb-3">
+            <span class="input-group-text">跑步距离</span>
+            <input type="text" class="form-control" id="run_len_front" placeholder="3" maxlength="2">
+            <span class="input-group-text">.</span>
+            <input type="text" class="form-control" id="run_len_back" placeholder="00" maxlength="2">
+            <span class="input-group-text">千米</span>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">跑步时间</span>
+            <input type="text" class="form-control" id="run_time_m" placeholder="13" maxlength="2">
+            <span class="input-group-text">分</span>
+            <input type="text" class="form-control" id="run_time_s" placeholder="20" maxlength="2">
+            <span class="input-group-text">秒</span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <!-- <label class="input-group-text" for="inputGroupFile01">运动日期</label> -->
+            <input type="text" class="form-control" id="run_date_year" maxlength="4">
+            <span class="input-group-text">-</span>
+            <input type="text" class="form-control" id="run_date_month" maxlength="2">
+            <span class="input-group-text">-</span>
+            <input type="text" class="form-control" id="run_date_day" maxlength="2">
+        </div>
+        <div class="input-group" style="margin-top: 15px;">
+            <span class="input-group-text">备注</span>
+            <textarea id="comment" class="form-control" aria-label="With textarea" maxlength="52" style="height: 110px; resize: none;"></textarea>
+        </div>
+        <div class="input-group mb-3" style="margin-top: 15px;">
+            <label class="input-group-text" for="inputGroupFile01">上传图片</label>
+            <input class="form-control run_pic1" type="file" id="formFileMultiple">
+        </div>
+        <div class="input-group mb-3" style="margin-top: 15px;">
+            <label class="input-group-text" for="inputGroupFile01">上传图片</label>
+            <input class="form-control run_pic2" type="file" id="formFileMultiple">
+        </div>
+        <div class="input-group mb-3 d-flex justify-content-center" style="margin-top: 15px;">
+            <button class="btn btn-primary w-100" type="button" id="aaa" onclick="post(this)">提交</button>
+            <button class="btn btn-dark w-100" style="margin-top: 10px;" type="button" onclick="javascript:window.location.href='/'">返回</button>
+        </div>
+    </main>
+</body>
+<script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script src="/static/post.js"></script>
+</html>

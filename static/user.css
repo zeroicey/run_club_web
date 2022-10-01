@@ -1,0 +1,22 @@
+img {
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.imgPreview {
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*容器占满整个屏幕*/
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.imgPreview img {
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+}
