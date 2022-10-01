@@ -16,19 +16,19 @@ function get_month_days(){
 
 function post(btn) {
     btn.classList.add('visually-hidden')
-    const run_len_front = document.querySelector('#run_len_front').value
-    const run_len_back = document.querySelector('#run_len_back').value
-    const run_time_m = document.querySelector('#run_time_m').value
-    const run_time_s = document.querySelector('#run_time_s').value
-    const run_date_year = document.querySelector('#run_date_year').value
-    const run_date_month = document.querySelector('#run_date_month').value
-    const run_date_day = document.querySelector('#run_date_day').value
-    const run_len = run_len_front + ' ' + run_len_back
-    const run_time = run_time_m + ':' + run_time_s
-    const run_date = run_date_year + '-' + run_date_month + '-' + run_date_day
-    const run_pic1 = document.querySelector('.run_pic1').files
-    const run_pic2 = document.querySelector('.run_pic2').files
-    const run_comment = document.querySelector('#comment').value
+    let run_len_front = document.querySelector('#run_len_front').value
+    let run_len_back = document.querySelector('#run_len_back').value
+    let run_time_m = document.querySelector('#run_time_m').value
+    let run_time_s = document.querySelector('#run_time_s').value
+    let run_date_year = document.querySelector('#run_date_year').value
+    let run_date_month = document.querySelector('#run_date_month').value
+    let run_date_day = document.querySelector('#run_date_day').value
+    let run_len = run_len_front + ' ' + run_len_back
+    let run_time = run_time_m + ':' + run_time_s
+    let run_date = run_date_year + '-' + run_date_month + '-' + run_date_day
+    let run_pic1 = document.querySelector('.run_pic1').files
+    let run_pic2 = document.querySelector('.run_pic2').files
+    let run_comment = document.querySelector('#comment').value
     console.log(run_date_day);
     if (
         run_len_front.trim() === '' ||
@@ -40,7 +40,7 @@ function post(btn) {
         run_comment.trim() === '' ||
         run_date_day.trim() === ''
     ) {
-        swal("格式错误", "请检查输入框是否为空", "error")
+        swal("格式错误", "输入框不能为空", "error")
         return btn.classList.remove('visually-hidden')
     } else if (!(0 < parseInt(run_date_day)) || !(parseInt(run_date_day) < get_month_days())) {
         swal("格式错误", "请输入正确的日期", "error")

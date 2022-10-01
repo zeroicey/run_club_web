@@ -20,19 +20,19 @@
             </div>
             <div class="input-group" style="margin: 5px;">
                 <span class="input-group-text">昵称</span>
-                <input type="text" class="form-control" value="{{ user.nickname }}">
+                <input type="text" class="form-control" value="{{ user.nickname }}" id="nickname">
             </div>
             <div class="input-group" style="margin: 5px;">
                 <span class="input-group-text">班级</span>
-                <input type="text" class="form-control" value="{{ user._class }}">
+                <input type="text" class="form-control" value="{{ user._class }}" id="class">
             </div>
             <div class="input-group" style="margin: 5px;">
                 <span class="input-group-text">密码</span>
-                <input type="password" class="form-control" value="{{ user.password }}">
+                <input type="password" class="form-control" value="{{ user.password }}" id="password">
             </div>
             <div class="input-group" style="margin: 5px;">
                 <span class="input-group-text">确认密码</span>
-                <input type="password" class="form-control">
+                <input type="password" class="form-control" id="password_again">
             </div>
             <div class=" d-flex justify-content-center" style="margin-top: 15px;">
                 <button class="btn btn-primary" type="button" id="aaa" onclick="save(this)" style="margin: 5px;">保存</button>
@@ -71,6 +71,8 @@
     <div class="imgPreview visually-hidden d-flex justify-content-center align-items-center">
         <img src="" id="imgPreview">
     </div>
+    <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/static/user.js"></script>
 </body>
 
