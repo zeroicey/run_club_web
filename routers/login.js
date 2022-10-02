@@ -20,8 +20,8 @@ router
                     req.session.user = login_data
                     conn.query(`UPDATE users SET lastLoginTime='${new Date().getTime()}' WHERE username='${login_data.username}'`, (err, ret) => {
                         if (err) { console.log(err); return res.send(false) }                    
+                        return res.send(true)
                     })
-                    res.send(true)
                 } else {
                     res.send(false)
                 }

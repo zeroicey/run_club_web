@@ -18,8 +18,7 @@ function save(save_btn) {
     if (
         _class.trim() === '' ||
         nickname.trim() === '' ||
-        password.trim() === '' ||
-        password_again.trim() === ''
+        password.trim() === ''
     ) {
         swal("格式错误", "输入框不能为空", "error")
         return save_btn.classList.remove('visually-hidden')
@@ -35,14 +34,14 @@ function save(save_btn) {
     } else if (!(patten.exec(password))) {
         swal("格式错误", "请输入6-15个以字母开头, 可带数字, '_' 的密码", "error")
         return save_btn.classList.remove('visually-hidden')
-    } else if (password !== password_again) {
+    } else if (password !== password_again && password_again.length !== 0) {
         swal("格式错误", "两次密码不一致", "error")
         return save_btn.classList.remove('visually-hidden')
     }
     axios.post('/user', {
-        nickname,
-        password,
-        _class
+        nickname: nickname,
+        password: password,
+        class: _class
     })
     .then((response) => {
         if (response.data) {
@@ -51,7 +50,7 @@ function save(save_btn) {
                 window.location.href = "/user"
             })
         } else {
-            swal("修改", "请联系管理员解决", "error")
+            swal("修改失败", "请联系管理员解决", "error")
             save_btn.classList.remove('visually-hidden')
         }
     })
