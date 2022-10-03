@@ -56,6 +56,45 @@ function save(save_btn) {
     })
 }
 
+function reload(id, btn) {
+    btn.classList.add('visually-hidden')
+    axios.post('/reloadPic', {id: id})
+    .then((response) => {
+        console.log(response);
+        if (response.data) {
+            swal("刷新成功", "即将刷新页面", "success")
+            .then(() => {
+                window.location.href = '/user'
+            })
+        } else {
+            swal("刷新失败", "请联系管理员解决", "error")
+            .then(() => {
+                window.location.href = '/user'
+            })
+        }
+    })
+}
+
+function deleted(id, btn) {
+    btn.classList.add('visually-hidden')
+    axios.post('/deleteCard', {id: id})
+    .then((response) => {
+        console.log(response);
+        if (response.data) {
+            swal("删除成功", "即将刷新页面", "success")
+            .then(() => {
+                window.location.href = '/user'
+            })
+        } else {
+            swal("删除失败", "请联系管理员解决", "error")
+            .then(() => {
+                window.location.href = '/user'
+            })
+        }
+    })
+    
+}
+
 document.querySelector('.imgPreview').onclick = function () {
     document.querySelector('.imgPreview').classList.add("visually-hidden")
 };

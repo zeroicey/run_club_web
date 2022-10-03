@@ -57,8 +57,8 @@
                         <td>{{ if $value.isPic1 === 1 }} <img src="{{$value.pic1Url}}" alt="" srcset="" onclick="img_click(this)"> {{/if}}</td>
                         <td>{{ if $value.isPic2 === 1 }} <img src="{{$value.pic2Url}}" alt="" srcset="" onclick="img_click(this)"> {{/if}}</td>
                         <td>{{$value.date}}</td>
-                        <td><button type="button" class="btn btn-success" onclick="save()">刷新</button>
-                          <button type="button" class="btn btn-success" onclick="save()">删除</button></td>
+                        <td><button type="button" class="btn btn-success" onclick="reload({{ $value.id }}, this)">刷新</button>
+                          <button type="button" class="btn btn-success" onclick="deleted({{ $value.id }}, this)">删除</button></td>
                     </tr>
                     {{ /each }}
                 </tbody>

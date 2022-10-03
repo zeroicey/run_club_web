@@ -78,7 +78,6 @@ function post(btn) {
         headers: { 'Content-Type': 'multipart/form-data' }
     })
     .then((response) => {
-        console.log(response);
         if (response.data) {
             swal("上传成功", "非常好，请继续加油", "success")
             .then(() => {
