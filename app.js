@@ -36,6 +36,6 @@ app.use(loginRouter)
 app.use(postRouter)
 app.use(userRouter)
 
-app.listen(port_test, () => {
-    console.log(`Running on ${port_test}`);
+app.listen(port, () => {
+    console.log(`Running on ${port}`);
 })

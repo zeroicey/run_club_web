@@ -12,7 +12,7 @@ function login() {
   .then((response) => {
     // console.log(response);
     if (response.data) {
-      swal("登陆成功", "欢迎来到常跑社", "success")
+      swal("登陆成功", username + "，欢迎来到常跑社", "success")
       .then(() => {
         window.location.href = "/"
       })

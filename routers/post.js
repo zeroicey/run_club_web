@@ -48,7 +48,7 @@ router
             console.log(error);
             return res.send(false)
         }
-        conn.query(`INSERT INTO cards (len, date, time, comment, isPic1, isPic2, pic1Url, pic2Url, username) VALUES ('${data.run_len}', '${data.run_date}', '${data.run_time}', '${data.run_comment}', ${data.run_is_pic1}, ${data.run_is_pic2}, '${data.pic1_ret[0].imgUrl}', '${data.pic2_ret[0].imgUrl}', '${req.session.user.username}')`, (err) => {
+        conn.query(`INSERT INTO cards (len, date, time, comment, isPic1, isPic2, pic1Url, pic2Url, username) VALUES ('${data.run_len}', '${data.run_date}', '${data.run_time}', '${data.run_comment}', ${data.run_is_pic1}, ${data.run_is_pic2}, '${data.pic1_ret[0].imgUrl}', '${data.pic2_ret[0].imgUrl}', '${req.session.user.username}'')`, (err) => {
             if (err) {
                 console.log(err);
                 return res.send(false)

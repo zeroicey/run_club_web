@@ -32,7 +32,7 @@ router
         })
     })
     .get('/getCardData', (req, res) => {
-        conn.query("SELECT * FROM cards ORDER BY id DESC", (err, ret) => {
+        conn.query("SELECT *, nickname FROM cards, users WHERE cards.username = users.username ORDER BY date DESC", (err, ret) => {
             if (err) {
                 console.log(err);
                 res.send(false)

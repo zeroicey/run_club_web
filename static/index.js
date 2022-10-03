@@ -51,7 +51,8 @@ function get_on_user_synthesis_html(user, num) {
 }
 
 function get_card_html(data) {
-    // console.log(data);
+    let date = new Date(data.date)
+    data.date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
     let isPic = true
     let img1_html = `<img src="${data.pic1Url}" class="img-fluid rounded-start" onclick="img_click(this)">`
     let img2_html = `<img src="${data.pic2Url}" class="img-fluid rounded-start" onclick="img_click(this)">`
@@ -66,7 +67,7 @@ function get_card_html(data) {
         <div class="${isPic ? 'col-md-8 ': 'col-md-12 '}">
             <div class="card-body">
             <div class="card-header">
-            ${data.username}
+            ${data.nickname}
             </div>
             <div class="card-body">
                 <p class="card-text">跑步距离：${(data.len).split(' ')[0]}.${(data.len).split(' ')[1]} km</p>
@@ -74,7 +75,7 @@ function get_card_html(data) {
                 <p class="card-text">备注：${data.comment}</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">打卡日期：${data.date}</small>
+                <small class="text-muted">跑步日期：${data.date}</small>
             </div>
             </div>
         </div>
