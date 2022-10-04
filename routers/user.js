@@ -18,13 +18,17 @@ router
                 console.log(err);
                 res.send(false)
             } else {
-                conn.query(`SELECT * FROM cards where username='${req.session.user.username}' ORDER BY id DESC`, (err, ret1) => {
+                conn.query(`SELECT * FROM cards where username='${req.session.user.username}' ORDER BY id`, (err, ret1) => {
                     if (err) {
                         console.log(err);
                         res.send(false)
                     } else {
                         ret0[0]._class = ret0[0].class
                         // console.log(ret1);
+                        ret1.forEach(element => {
+                            let date = new Date(element.date)
+                            element.date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+                        });
                         res.render('user.html', {user: ret0[0], cards: ret1})
                     }
                 })
