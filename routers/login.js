@@ -15,19 +15,21 @@ router
                 res.send(false)
             }
             // console.log(ret);
-            try {
-                if (ret[0].password === login_data.password) {
-                    req.session.user = login_data
-                    conn.query(`UPDATE users SET lastLoginTime='${new Date().getTime()}' WHERE username='${login_data.username}'`, (err, ret) => {
-                        if (err) { console.log(err); return res.send(false) }                    
-                        return res.send(true)
-                    })
-                } else {
-                    res.send(false)
+            else {
+                try {
+                    if (ret[0].password === login_data.password) {
+                        req.session.user = login_data
+                        conn.query(`UPDATE users SET lastLoginTime='${new Date().getTime()}' WHERE username='${login_data.username}'`, (err, ret) => {
+                            if (err) { console.log(err); return res.send(false) }                    
+                            return res.send(true)
+                        })
+                    } else {
+                        res.send(false)
+                    }
+                } catch (error) {
+                    console.log(error);
+                    return res.send(false)
                 }
-            } catch (error) {
-                console.log(error);
-                return res.send(false)
             }
         })
     })

@@ -63,17 +63,33 @@ function post(btn) {
 	    btn.classList.remove('visually-hidden')
         return swal("格式错误", "请输入正确的数据", "error")
     }
-    console.log(run_pic1);
     const formData = new FormData();
+    if (run_pic1.length === 1) { 
+        if ((run_pic1[0].name).split('.')[1] !== 'png' && (run_pic1[0].name).split('.')[1] !== 'jpg') {
+            btn.classList.remove('visually-hidden')
+            return swal("格式错误", "上传文件只能为 .png .jpg", "error")
+        } else {
+            formData.append("run_pic1", run_pic1[0]);
+            formData.append("run_is_pic1", 1) 
+        }
+    }
+    else { formData.append("run_is_pic1", 0) }
+    if (run_pic2.length === 1) { 
+        if ((run_pic1[0].name).split('.')[1] !== 'png' && (run_pic1[0].name).split('.')[1] !== 'jpg') {
+            btn.classList.remove('visually-hidden')
+            return swal("格式错误", "上传文件只能为 .png .jpg", "error")
+        }
+        else {
+            formData.append("run_pic2", run_pic2[0]);
+            formData.append("run_is_pic2", 1) 
+        }
+    }
+    else { formData.append("run_is_pic2", 0) }
+
     formData.append("run_len", run_len);
     formData.append("run_time", run_time);
     formData.append("run_date", run_date);
     formData.append("run_comment", run_comment);
-    console.log(run_pic1[0]);
-    if (run_pic1.length === 1) { formData.append("run_pic1", run_pic1[0]); formData.append("run_is_pic1", 1) }
-    else { formData.append("run_is_pic1", 0) }
-    if (run_pic2.length === 1) { formData.append("run_pic2", run_pic2[0]); formData.append("run_is_pic2", 1) }
-    else { formData.append("run_is_pic2", 0) }
     axios.post('/post', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
     })
